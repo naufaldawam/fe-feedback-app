@@ -8,6 +8,7 @@ import About from './Pages/About';
 import Notfound from './Pages/Notfound';
 import Login from './Pages/Login';
 import Feedback from './Pages/Feedback';
+import SeeFeedback from './Pages/SeeFeedback';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/feedback' element={<Feedback/>}/>
+          <Route path='/seefeedback' element={<SeeFeedback/>}/>
           <Route path='*' element={<Notfound/>}/>
         </Routes>
       </Router>

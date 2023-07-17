@@ -7,6 +7,7 @@ const Feedback = () =>{
         <div>
             <FormFeedback/>
             <button onClick={() => navigate('/')}>selesai input</button>
+            <button onClick={() => navigate('/seefeedback')}>lihat all feedback</button>
         </div>
     )
 };
