@@ -6,17 +6,16 @@ const SeeFeedbackForUser = () => {
   const [feedbacks, setFeedbacks] = useState([]);
 
   useEffect(() => {
-    // Fungsi untuk mengambil data dari server
     const fetchFeedbacks = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/feedbacks');
-        setFeedbacks(response.data); // Mengatur data feedback yang diambil dari server ke state feedbacks
+        const response = await axios.get('http://localhost:3001/feedbacks');
+        setFeedbacks(response.data);
       } catch (error) {
-        console.error(error); // Tangani kesalahan jika terjadi
+        console.error(error);
       }
     };
 
-    fetchFeedbacks(); // Panggil fungsi fetchFeedbacks saat komponen dimuat
+    fetchFeedbacks(); 
   }, []);
 
   return (

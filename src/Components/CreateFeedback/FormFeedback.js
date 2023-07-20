@@ -12,11 +12,10 @@ const FeedbackForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put('http://localhost:3000/feedback', formData);
-      console.log(response.data); // Response dari server (opsional)
-      // Tambahkan logika atau feedback lain sesuai dengan respons dari server (jika diperlukan)
+      const response = await axios.post('http://localhost:3001/feedback', formData);
+      console.log(response.data);
     } catch (error) {
-      console.error(error); // Tangani kesalahan jika terjadi
+      console.error(error);
     }
   };
 
