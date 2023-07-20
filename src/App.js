@@ -9,6 +9,7 @@ import Notfound from './Pages/Notfound';
 import Login from './Pages/Login';
 import Feedback from './Pages/Feedback';
 import SeeFeedback from './Pages/SeeFeedback';
+import Profile from './Pages/Profile';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path='/feedback' element={<Feedback/>}/>
           <Route path='/seefeedback' element={<SeeFeedback/>}/>
           <Route path='*' element={<Notfound/>}/>
+          <Route path= '/profile' element={<Profile/>}/>
         </Routes>
       </Router>
     </div>
