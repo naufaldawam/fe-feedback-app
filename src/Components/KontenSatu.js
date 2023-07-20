@@ -1,7 +1,8 @@
 const KontenSatu = () => {
     return(
         <div>
-            <h1>Ini konten Home</h1>
+            <h1>Hai selamat datang di halaman feedback dimana anda dapat memberikan kami masukan dan saran</h1>
+            <h1>Silahkan klik tombol feedback untuk memasukan feedback bagi kami</h1>
         </div>
     )
 };

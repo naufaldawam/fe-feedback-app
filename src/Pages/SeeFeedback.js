@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import GetAllFeedback from "../Components/GetAllFeedback"
+import GetAllFeedback from "../Components/GetAllFeedbackInput/SeeFeedbackForUser"
 
 const SeeFeedback = () =>{
     const navigate = useNavigate();
     return(
         <div>
             <GetAllFeedback/>
-            <button onClick={() => navigate('/')}>selesai input</button>
+            <button onClick={() => navigate('/')}>selesai melihat feedback dari banyak orang</button>
         </div>
     )
 };

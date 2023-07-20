@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import FormFeedback from "../Components/FormFeedback"
+import FormFeedback from "../Components/CreateFeedback/FormFeedback.js";
 
 const Feedback = () =>{
     const navigate = useNavigate();
