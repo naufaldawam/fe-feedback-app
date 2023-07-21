@@ -1,42 +1,71 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../Login/LoginForm.css';
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  // const [loggedInUser, setLoggedInUser] = useState(null);
+  const history = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
-    // Lakukan logika untuk mengirim data login ke server atau melakukan validasi di sini
-    console.log('Username:', username);
-    console.log('Password:', password);
+    try {
+      const response = await axios.get('http://localhost:3001/users');
+      const users = response.data;
+
+      const user = users.find((user) => user.username === username && user.password === password);
+
+      if (user) {
+        // console.log('nama username', user.username);
+        alert('Login berhasil!');
+        // setLoggedInUser(user.username);
+        // console.log(setLoggedInUser);
+        history('/');
+      } else {
+        alert('Login gagal. Periksa username dan password Anda.');
+      }
+      // console.log('datanya',users);
+      // setErrorMessage('');
+    } 
+    catch (error) {
+      if (error.response && error.response.data) {
+        setErrorMessage(error.response.data.message);
+      } else {
+        setErrorMessage('Terjadi kesalahan saat melakukan login.');
+      }
+    }
   };
+;
 
   return (
-    <div className="login-form-container">
-      <h2>Login</h2>
-      <div>
-        <form className="login-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-            <label htmlFor="username">Username:</label>
+    <div className="space">
+      <div className="container">
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <h1>Form Login</h1>
+        <form onSubmit={handleLogin}>
+          <div>
+            <label>Username:</label>
             <input
-                type="text"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
             />
-            </div>
-            <div className="form-group">
-            <label htmlFor="password">Password:</label>
+          </div>
+          <div>
+            <label>Password:</label>
             <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
             />
-            </div>
-            <button type="submit">Login</button>
+          </div>
+          <button type="submit">Login</button>
         </form>
       </div>
     </div>
