@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import '../CreateFeedback/FormFeedback.css';
 
@@ -26,11 +27,13 @@ const FeedbackForm = () => {
       [name]: value,
     }));
   };
+  
+  const navigate = useNavigate();
 
   return (
     <div className="form-container">
       <h2>Feedback Form</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-control">
         <label htmlFor="sender">Sender:</label>
         <input
           type="text"
@@ -60,11 +63,14 @@ const FeedbackForm = () => {
           required
         >
           <option value="feedback">Feedback</option>
-          {/* Anda dapat menambahkan lebih banyak opsi di sini jika diperlukan */}
         </select>
 
         <button type="submit">Submit Feedback</button>
       </form>
+      <div className="button-control">
+        <button className="button-finished" onClick={() => navigate('/')}>selesai input</button>
+        <button className="button-finished" onClick={() => navigate('/seefeedback')}>lihat all feedback</button>
+      </div>
     </div>
   );
 };

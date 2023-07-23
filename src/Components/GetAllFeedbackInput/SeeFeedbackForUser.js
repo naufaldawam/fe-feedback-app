@@ -10,6 +10,7 @@ const SeeFeedbackForUser = () => {
       try {
         const response = await axios.get('http://localhost:3001/feedbacks');
         setFeedbacks(response.data);
+        console.log('datanya', response.data);
       } catch (error) {
         console.error(error);
       }

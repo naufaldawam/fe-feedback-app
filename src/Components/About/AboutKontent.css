@@ -1,0 +1,23 @@
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .about-text {
+    flex: 1;
+  }
+  
+  .about-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .about-image img {
+    max-width: 100%;
+    max-height: 400px;
+    /* border: 1px solid #ccc; */
+  }
+  
